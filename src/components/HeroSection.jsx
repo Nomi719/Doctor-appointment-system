@@ -9,7 +9,7 @@ export default function Hero(){
   <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div className="lg:flex-grow md:w-3/4 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <h1 className="font-semibold sm:text-3xl text-xl mb-4 text-gray-900">
-        DOCTOR's APPOINTMENT SYSTEM 
+        DOCTORS APPOINTMENT SYSTEM 
         <br className="hidden lg:inline-block" />
         BY Batch-11
       </h1>
