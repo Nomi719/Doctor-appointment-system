@@ -1,44 +1,48 @@
 import connectDB from "@/lib/connectDB";
+import { RequestModal } from "@/lib/models/RequestModal";
 import { UserModal } from "@/lib/models/UserModal";
 
+export async function POST(req) {
+  await connectDB();
+  try {
+    const obj = await req.json();
 
-
-export async function POST(req){
-    await connectDB();
-    try {
-        const obj = await req.json();
-    let newUser = await new UserModal({...obj});
+    let newUser = await new UserModal({ ...obj });
     newUser = await newUser.save();
 
-    return Response.json({
-        error : false,
-        message: "User created successfully",
-        user : newUser,
-    },
-    { status: 201 }
-);
-    } catch (error) {
-        return Response.json({
-            error : true,
-            message: "Something went wrong",
-        },
-        { status: 400 }
+    return Response.json(
+      {
+        error: false,
+        msg: "User Registered Successfully",
+        user: newUser,
+      },
+      { status: 201 }
     );
-    }
+  } catch (e) {
+    return Response.json(
+      {
+        error: true,
+        msg: "Something went wrong",
+      },
+      { status: 400 }
+    );
+  }
 }
-export async function GET(req){
-    await connectDB();
-    const users = await UserModal.find();
-    return Response.json({
-        error : false,
-        message: "User fetched successfully",
-        users,
+
+export async function GET(req) {
+  await connectDB();
+  const users = await UserModal.find();
+  return Response.json(
+    {
+      error: false,
+      msg: "User fetched Successfully",
+      users,
     },
     { status: 200 }
-);
+  );
 }
 
-export async function PUT(req){}
+export async function PUT(req) {
+}
 
-export async function DELETE(req){}
-
+export async function DELETE(req) {}

@@ -1,4 +1,4 @@
-import { DatePicker } from "@/components/DatePicker"
+ import { DatePicker } from "@/components/DatePicker"
 import { Button } from "@/components/ui/button"
 import { doctors } from "@/lib/data"
 import { ClockIcon, HomeIcon, PlusIcon } from "@radix-ui/react-icons"
@@ -8,7 +8,7 @@ import Image from "next/image"
 export default function DoctorDetail({params}){
 
     //find returns single oject
-    const doctorInfo= doctors.find((doctor)=>doctor.id ==params.id)
+    const doctorInfo= doctors.find((doctor)=> doctor.id == params.id)
     return(
         <div className="min-h-screen">
             <div className="container  py-10 mx-auto">
@@ -22,10 +22,10 @@ export default function DoctorDetail({params}){
 
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h1 className="text-sm title-font text-gray-500 tracking-widest">
-              {doctorInfo.category}
+              {doctorInfo?.category}
             </h1>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-              {doctorInfo.name}
+              {doctorInfo?.name}
             </h1>
             <div className="flex mb-4">
               <span className="flex items-center">
@@ -139,21 +139,21 @@ export default function DoctorDetail({params}){
                 <HomeIcon/>
                 <h1 className="font-semibold">Gender</h1>
               </div>
-              <h1>{doctorInfo.gender}</h1>
+              <h1>{doctorInfo?.gender}</h1>
             </div>
             <div className="flex justify-between my-3">
               <div className="flex gap-2 items-center">
                 <PlusIcon />
                 <h1 className="font-semibold">Hospital</h1>
               </div>
-              <h1>{doctorInfo.hospital}</h1>
+              <h1>{doctorInfo?.hospital}</h1>
             </div>
             <div className="flex justify-between my-3">
               <div className="flex gap-2 items-center">
                 <ClockIcon />
                 <h1 className="font-semibold">Appointment Time</h1>
               </div>
-              <h1>{doctorInfo.appointmentTime}</h1>
+              <h1>{doctorInfo?.appointmentTime}</h1>
             </div>
 
             <div className="flex justify-between my-3">
@@ -161,7 +161,7 @@ export default function DoctorDetail({params}){
                 <ClockIcon />
                 <h1 className="font-semibold">Fees</h1>
               </div>
-              <h1>${doctorInfo.fees}</h1>
+              <h1>${doctorInfo?.fees}</h1>
             </div>
             <DatePicker />
             <Button className={"w-full"}>Book Your Appointment</Button>
