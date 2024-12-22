@@ -15,7 +15,7 @@ export default async function Request({searchParams}) {
 
   return (
     <div className="container mx-auto">
-      <h1 className="font-bold text-3xl my-3">Doctor's Requests</h1>
+      <h1 className="font-bold text-3xl my-3">Doctors Requests</h1>
       <DoctorRequests status={status} requests={requests} />
     </div>
   );
