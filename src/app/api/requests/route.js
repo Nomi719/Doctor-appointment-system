@@ -67,7 +67,7 @@ export async function PUT(req) {
   await connectDB();
   try {
     const obj = await req.json();
-    let { id, status } = obj;
+    let { id, status } = obj; //destructure
     const request = await RequestModal.findOne({ _id: id });
 
     await UserModal.findOneAndUpdate({ _id: request.user }, { role: "doctor" });
